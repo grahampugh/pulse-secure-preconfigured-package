@@ -1,6 +1,8 @@
 # pulse-secure-preconfigured-package
 
-Creates a preconfigured package for deploying Juniper Network's Pulse Secure client.
+Creates a preconfigured package for deploying Juniper Network's Pulse Secure client. This 
+installer is based on [@rtrouton]'s blog post 
+[Deploying a pre-configured Junos Pulse VPN client on OS X][1].
 
 Requirements
 ---------
@@ -60,3 +62,8 @@ git clone https://github.com/grahampugh/munki-with-config.git
 ```bash
 make pkg
 ```
+
+[1]: https://derflounder.wordpress.com/2015/03/13/deploying-a-pre-configured-junos-pulse-vpn-client-on-os-x/
+[2]: http://grahamgilbert.com/blog/2013/08/09/the-luggage-an-introduction/
+[@grahamgilbert]: https://twitter.com/grahamgilbert
+[@rtrouton]: https://twitter.com/rtrouton
