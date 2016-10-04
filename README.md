@@ -56,7 +56,9 @@ git clone https://github.com/grahampugh/munki-with-config.git
    * If you wish to sign the package, uncomment the following line in `Makefile` and 
      change `Your Org` to match your Developer ID name:
 
-```#PB_EXTRA_ARGS+= --sign "Your Org"```
+```bash
+#PB_EXTRA_ARGS+= --sign "Your Org"
+```
 
 **4. Make the package:**
 ```bash
