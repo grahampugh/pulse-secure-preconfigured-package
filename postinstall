@@ -1,0 +1,62 @@
+#!/bin/bash
+ 
+# Determine working directory
+ 
+install_dir="/Library/Management/junos"
+ 
+#
+# Installing Junos Pulse
+#
+ 
+# Specify location of the Junos Pulse disk image
+ 
+  TOOLS=$install_dir/"Pulse-Secure.dmg"
+ 
+# Specify location of the Junos Pulse configuration file
+ 
+  VPN_CONFIG_FILE=$install_dir/"config.jnprpreconfig"
+ 
+# Specify a /tmp/junospulse.XXXX mountpoint for the disk image
+ 
+  TMPMOUNT=`/usr/bin/mktemp -d /tmp/junospulse.XXXX`
+ 
+# Mount the latest Junos Pulse disk image to the /tmp/junospulse.XXXX mountpoint
+ 
+  hdiutil attach "$TOOLS" -mountpoint "$TMPMOUNT" -nobrowse -noverify -noautoopen
+ 
+# Install Junos Pulse
+ 
+  /usr/sbin/installer -dumplog -verbose -pkg "$(/usr/bin/find $TMPMOUNT -maxdepth 1 \( -iname \*\.pkg -o -iname \*\.mpkg \))" -target "$3"
+ 
+#
+# Applying Janelia VPN configuration file
+#
+ 
+if [[ -d "$3/Applications/Junos Pulse.app" ]]; then
+ 
+    echo "Junos Pulse VPN Client Installed"
+    "$3/Applications/Junos Pulse.app/Contents/Plugins/JamUI/jamCommand" -importFile "$VPN_CONFIG_FILE"
+    echo "VPN Configuration Installed"
+
+elif [[ -d "$3/Applications/Pulse Secure.app" ]]; then
+
+    echo "Pulse Secure VPN Client Installed"
+    "$3/Applications/Pulse Secure.app/Contents/Plugins/JamUI/jamCommand" -importFile "$VPN_CONFIG_FILE"
+    echo "VPN Configuration Installed"
+else
+    echo "Pulse Client Not Installed"
+fi
+ 
+#
+# Clean-up
+#
+ 
+# Unmount the Junos Pulse disk image
+ 
+  /usr/bin/hdiutil detach "$TMPMOUNT"
+ 
+# Remove the /tmp/junospulse.XXXX mountpoint
+ 
+  /bin/rm -rf "$TMPMOUNT"
+ 
+exit 0

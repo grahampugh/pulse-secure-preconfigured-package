@@ -1,0 +1,33 @@
+schema version {
+    version: "1"
+}
+ 
+machine settings {
+    version: "13"
+    guid: "34b8fd0d-148d-XXXX-XXXX-349d99eb64f3"
+    connection-source: "preconfig"
+    server-id: "0284XXXXJ0GLA0AES"
+    allow-save: "true"
+    user-connection: "true"
+    splashscreen-display: "false"
+    dynamic-trust: "false"
+    dynamic-connection: "true"
+    FIPSClient: "false"
+    wireless-suppression: "false"
+}
+ 
+ive "2e83b4e6-758e-XXXX-XXXX-5c5fae6ca54a" {
+    friendly-name: "Your Organisation"
+    version: "7"
+    guid: "2e83b4e6-758e-XXXX-XXXX-5c5fae6ca54a"
+    server-id: "0284XXXXJ0GLA0AES"
+    connection-source: "preconfig"
+    factory-default: "true"
+    connection-policy-override: "true"
+    use-for-secure-meetings: "false"
+    use-for-connect: "true"
+    this-server: "false"
+    uri: "yourvpn.yourorg.com"
+    connection-identity: "user"
+    client-certificate-location-system: "false"
+}
