@@ -35,7 +35,7 @@ $ make bootstrap_files
 
 ```bash
 cd
-git clone https://github.com/grahampugh/munki-with-config.git
+git clone https://github.com/grahampugh/pulse-secure-preconfigured-package.git
 ```
 
 **3. Copy the Pulse Secure DMG and jnprpreconfig file into the cloned directory and edit config as necessary:**
