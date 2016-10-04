@@ -40,22 +40,22 @@ git clone https://github.com/grahampugh/munki-with-config.git
 
 **3. Copy the Pulse Secure DMG and jnprpreconfig file into the cloned directory and edit config as necessary:**
 
-    * `cd` into the created directory
-    * Copy your downloaded Pulse Secure DMG into this directory. Make sure there are no 
-      other DMGs in the directory.
-    * If the DMG you downloaded from the Pulse Secure website has a name in the form 
-      `ps-pulse-mac-5.2r5.0-b869-installer.dmg`, the version number will be automatically
-      extracted from the name. If you've renamed it in some way, or if future releases are
-      named in a different way, you'll need to edit the `PACKAGE_VERSION` variable in 
-      `Makefile`.
-    * Copy your `.jnprpreconfig` file into this directory. Make sure there is only one 
-      `.jnprpreconfig` file in this directory.
-    * If you wish to "brand" the installer, edit `Makefile` and change the BRANDING 
-      variable to match your Organisation's Name.  The default is "Preconfigured", 
-      resulting in a package name of "Pulse-Secure-Preconfigured.pkg".
-    * If you wish to sign the package, uncomment the following line in `Makefile` and 
-      change `Your Org` to match your Developer ID name:
-      
+   * cd into the created directory
+   * Copy your downloaded Pulse Secure DMG into this directory. Make sure there are no 
+     other DMGs in the directory.
+   * If the DMG you downloaded from the Pulse Secure website has a name in the form 
+     `ps-pulse-mac-5.2r5.0-b869-installer.dmg`, the version number will be automatically
+     extracted from the name. If you've renamed it in some way, or if future releases are
+     named in a different way, you'll need to edit the `PACKAGE_VERSION` variable in 
+     `Makefile`.
+   * Copy your `.jnprpreconfig` file into this directory. Make sure there is only one 
+     `.jnprpreconfig` file in this directory.
+   * If you wish to "brand" the installer, edit `Makefile` and change the BRANDING 
+     variable to match your Organisation's Name.  The default is "Preconfigured", 
+     resulting in a package name of "Pulse-Secure-Preconfigured.pkg".
+   * If you wish to sign the package, uncomment the following line in `Makefile` and 
+     change `Your Org` to match your Developer ID name:
+
 ```#PB_EXTRA_ARGS+= --sign "Your Org"```
 
 **4. Make the package:**
